@@ -282,12 +282,58 @@ void scanStream() {
 class Student {
     const int count = 5;
     vector<int> scores;
-    vector<int> second2;
+//    vector<int> second2;
+    string first;
+    string last;
+    int age = 0;
+    int stan = 0;
 
 public:
-    Student() {
-        vector<int> temp (5, 0);
-        second2 = temp;
+//    Student() {
+//        vector<int> temp (count, 0);
+//        second2 = temp;
+//    }
+
+    int get_age() {
+        return age;
+    }
+
+    int get_standard() {
+        return stan;
+    }
+
+    string get_first_name() {
+        return first;
+    }
+
+    string get_last_name() {
+        return last;
+    }
+
+    string to_string() {
+        string value;
+        value.append(std::to_string(age) + ",");
+        value.append(first + ",");
+
+        value.append(last + ",");
+        value.append(std::to_string(stan));
+        return value;
+    }
+
+    void set_age(int value) {
+        age = value;
+    }
+
+    void set_standard(int value) {
+        stan = value;
+    }
+
+    void set_first_name(string value) {
+        first = value;
+    }
+
+    void set_last_name(string value) {
+        last = value;
     }
 
     void input() {
@@ -306,6 +352,26 @@ public:
         return sum;
     }
 };
+
+void scanName() {
+    int age, standard;
+    string first_name, last_name;
+
+    cin >> age >> first_name >> last_name >> standard;
+
+    Student st;
+    st.set_age(age);
+    st.set_standard(standard);
+    st.set_first_name(first_name);
+    st.set_last_name(last_name);
+
+    cout << st.get_age() << "\n";
+    cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
+    cout << st.get_standard() << "\n";
+    cout << "\n";
+    cout << st.to_string();
+    cout << endl;
+}
 
 int scanStudents() {
 
@@ -335,7 +401,8 @@ int scanStudents() {
 }
 
 int main(int argc, const char *argv[]) {
-    scanStudents();
+    scanName();
+//    scanStudents();
 
 //    scanStream();
 //    doTranspose();
