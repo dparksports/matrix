@@ -279,7 +279,7 @@ void scanStream() {
     cout << endl;
 }
 
-class Student {
+class Student2 {
     const int count = 5;
     vector<int> scores;
 //    vector<int> second2;
@@ -353,55 +353,74 @@ public:
     }
 };
 
-void scanName() {
-    int age, standard;
-    string first_name, last_name;
+//void scanName() {
+//    int age, standard;
+//    string first_name, last_name;
+//
+//    cin >> age >> first_name >> last_name >> standard;
+//
+//    Student st;
+//    st.set_age(age);
+//    st.set_standard(standard);
+//    st.set_first_name(first_name);
+//    st.set_last_name(last_name);
+//
+//    cout << st.get_age() << "\n";
+//    cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
+//    cout << st.get_standard() << "\n";
+//    cout << "\n";
+//    cout << st.to_string();
+//    cout << endl;
+//}
 
-    cin >> age >> first_name >> last_name >> standard;
+//int scanStudents() {
+//
+//    int n; // number of students
+//    cin >> n;
+//    Student *s = new Student[n]; // an array of n students
+//
+//    for (int i = 0; i < n; i++) {
+//        s[i].input();
+//    }
+//
+//    // calculate kristen's score
+//    int kristen_score = s[0].calculateTotalScore();
+//
+//    // determine how many students scored higher than kristen
+//    int count = 0;
+//    for (int i = 1; i < n; i++) {
+//        int total = s[i].calculateTotalScore();
+//        if (total > kristen_score) {
+//            count++;
+//        }
+//    }
+//
+//    // print result
+//    cout << count;
+//
+//}
 
+struct Student {
+    string first_name;
+    string last_name;
+    int age = 0;
+    int standard = 0;
+
+    Student() {
+    }
+};
+
+int scanStudentStruct() {
     Student st;
-    st.set_age(age);
-    st.set_standard(standard);
-    st.set_first_name(first_name);
-    st.set_last_name(last_name);
 
-    cout << st.get_age() << "\n";
-    cout << st.get_last_name() << ", " << st.get_first_name() << "\n";
-    cout << st.get_standard() << "\n";
-    cout << "\n";
-    cout << st.to_string();
+    cin >> st.age >> st.first_name >> st.last_name >> st.standard;
+    cout << st.age << " " << st.first_name << " " << st.last_name << " " << st.standard;
     cout << endl;
 }
 
-int scanStudents() {
-
-    int n; // number of students
-    cin >> n;
-    Student *s = new Student[n]; // an array of n students
-
-    for (int i = 0; i < n; i++) {
-        s[i].input();
-    }
-
-    // calculate kristen's score
-    int kristen_score = s[0].calculateTotalScore();
-
-    // determine how many students scored higher than kristen
-    int count = 0;
-    for (int i = 1; i < n; i++) {
-        int total = s[i].calculateTotalScore();
-        if (total > kristen_score) {
-            count++;
-        }
-    }
-
-    // print result
-    cout << count;
-
-}
-
 int main(int argc, const char *argv[]) {
-    scanName();
+    scanStudentStruct();
+//    scanName();
 //    scanStudents();
 
 //    scanStream();
