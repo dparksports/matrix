@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include <set>
+#include <map>
 using namespace std;
 
 
@@ -14,7 +14,6 @@ int mode() {
 
     cin >> n;
     vector<int> numbers(n);
-    set<int> modes;
 
     for (int i = 0; i < n; ++i) {
         cin >> input;
@@ -43,17 +42,22 @@ int mode() {
     cout << endl;
 
 
-    for (int j = 0; j < n; ++j) {
-        int value = numbers[j];
-        set<int>::iterator iterator = modes.find(value);
-        if (iterator == modes.end()) {
-            modes.insert(value);
-        }
+    int value = 0;
+    map<int, int> map;
+    int maxCount = 0;
+    int maxNumber = 0;
+
+    for (int j = 0; j < numbers.size(); ++j) {
+        map[numbers[j]] += 1;
+
+        if (map[numbers[j]] > maxCount) {
+            maxCount = map[numbers[j]];
+            maxNumber = numbers[j];
+        };
     }
 
-
-    set<int>::iterator iterator = modes.begin();
-    cout << *iterator << endl;
+    printf("%d", maxNumber);
+//    cout <<  endl;
 }
 
 int main(int argc, const char *argv[]) {
