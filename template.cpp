@@ -18,22 +18,27 @@ public:
         sum += arg;
         return sum;
     }
-};
 
-
-template <>
-class AddElements <string>{
-    string appended;
-public:
-    AddElements(string arg) {
-        appended = arg;
-    }
-
-    string concatenate(string arg) {
-        appended.append(arg);
-        return appended;
+    T concatenate(T arg) {
+        sum.append(arg);
+        return sum;
     }
 };
+
+//
+//template <>
+//class AddElements <string>{
+//    string appended;
+//public:
+//    AddElements(string arg) {
+//        appended = arg;
+//    }
+//
+//    string concatenate(string arg) {
+//        appended.append(arg);
+//        return appended;
+//    }
+//};
 
 
 int doTemplate () {
@@ -61,7 +66,6 @@ int doTemplate () {
             cout << mystring.concatenate(element2) << endl;
         }
     }
-    cout << endl;
 }
 
 int main(int argc, const char *argv[]) {
