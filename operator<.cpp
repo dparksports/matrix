@@ -61,7 +61,16 @@ public:
     }
 
     bool operator<(Box& box) {
-        return length < box.getLength() && base < box.getBreadth() && height < box.getHeight();
+        if ( height < box.getHeight() && base == box.getBreadth() && length == box.getLength() )
+            return true;
+
+        if ( base < box.getBreadth() && length == box.getLength() )
+            return true;
+
+        if ( length < box.getLength() )
+            return true;
+
+        return false;
     }
 
 };
