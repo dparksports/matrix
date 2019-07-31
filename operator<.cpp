@@ -57,7 +57,11 @@ public:
     };
 
     long long CalculateVolume() {
-        return length * base * height;
+        long long l = length;
+        long long b = base;
+        long long h = height;
+        long long v = l * b * h;
+        return v;
     }
 
     bool operator<(Box& box) {
