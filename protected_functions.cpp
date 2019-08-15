@@ -74,60 +74,27 @@ public:
     }
 };
 
-class D:A,B,C {
+class D: public A, public B, public C {
     int val;
 public:
-    D()
-    {
+    D() {
         val = 1;
     }
 
-    bool isDivisible(const int& value, const int& factor) {
-        float result = value % factor;
-        return (result == 0);
-    }
-
     void update_val(int new_val) {
-        int factor2 = 0;
-        int factor3 = 0;
-        int factor5 = 0;
-
-        int remained = new_val;
-        bool usedFactor5 = true;
-        bool usedFactor3 = true;
-        bool usedFactor2 = true;
-
-        while (usedFactor5 || usedFactor3 || usedFactor2) {
-             usedFactor5 = false;
-             usedFactor3 = false;
-             usedFactor2 = false;
-
-            if (isDivisible(remained, 5)) {
-                remained /= 5;
-                factor5++;
-                usedFactor5 = true;
-
-                C::func(factor5);
+        while (val < new_val) {
+            if (new_val % 2 == 0) {
+                A::func(val);
             }
 
-            if (isDivisible(remained, 3)) {
-                remained /= 3;
-                factor3++;
-                usedFactor3 = true;
-
-                B::func(factor3);
+            if (new_val % 3 == 0) {
+                B::func(val);
             }
 
-            if (isDivisible(remained, 2)) {
-                remained /= 2;
-                factor2++;
-                usedFactor2 = true;
-
-                A::func(factor2);
+            if (new_val % 5 == 0) {
+                C::func(val);
             }
         }
-
-        val = remained;
     }
 
     //For Checking Purpose
