@@ -106,25 +106,28 @@ public:
                 remained /= 5;
                 factor5++;
                 usedFactor5 = true;
+
+                C::func(factor5);
             }
 
             if (isDivisible(remained, 3)) {
                 remained /= 3;
                 factor3++;
                 usedFactor3 = true;
+
+                B::func(factor3);
             }
 
             if (isDivisible(remained, 2)) {
                 remained /= 2;
                 factor2++;
                 usedFactor2 = true;
+
+                A::func(factor2);
             }
         }
 
         val = remained;
-        A::func(factor2);
-        B::func(factor3);
-        C::func(factor5);
     }
 
     //For Checking Purpose
