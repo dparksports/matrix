@@ -82,17 +82,38 @@ public:
     }
 
     void update_val(int new_val) {
-        while (val < new_val) {
+        bool usedFactor2;
+        bool usedFactor3;
+        bool usedFactor5;
+
+        usedFactor2 = true;
+        usedFactor3 = true;
+        usedFactor5 = true;
+
+        while (usedFactor2 || usedFactor3 || usedFactor5) {
+            usedFactor2 = false;
+            usedFactor3 = false;
+            usedFactor5 = false;
+
             if (new_val % 2 == 0) {
+                new_val /= 2;
                 A::func(val);
+
+                usedFactor2 = true;
             }
 
             if (new_val % 3 == 0) {
+                new_val /= 3;
                 B::func(val);
+
+                usedFactor3 = true;
             }
 
             if (new_val % 5 == 0) {
+                new_val /= 5;
                 C::func(val);
+
+                usedFactor5 = true;
             }
         }
     }
